@@ -1,0 +1,56 @@
+﻿<Window x:Class="Thread_Basic_2Calls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Thread_Basic_2Calls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Click="CallWithoutTPL">
+            <TextBlock>
+                Methods Call without TPL<LineBreak />(using Thread class)
+            </TextBlock>
+        </Button>
+        <Border Grid.Row="0" Grid.Column="1" BorderThickness="2" BorderBrush="Black">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="txtResultWithoutTPL"></TextBlock>
+        </Border>
+        
+        <Button Grid.Row="1" Grid.Column="0" Click="CallWithTPL">
+            <TextBlock>
+                Methods Call with TPL<LineBreak />(using TPL Task Class)
+            </TextBlock>
+        </Button>
+        <Border Grid.Row="1" Grid.Column="1" BorderThickness="2" BorderBrush="Black">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="txtResultWithTPL"></TextBlock>
+        </Border>
+
+        <Button Grid.Row="2" Grid.Column="0" Click="CallBackgroundWorker">
+            <TextBlock>
+                Methods Call<LineBreak />using BackgroundWorker
+            </TextBlock>
+        </Button>
+        <Border Grid.Row="2" Grid.Column="1" BorderThickness="2" BorderBrush="Black">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="txtResultBackgroundWorker"></TextBlock>
+        </Border>
+
+        <Button Grid.Row="3" Grid.Column="0" Click="CallAsyncAwaitTPL">
+            <TextBlock>
+                Methods Call<LineBreak />using Async, Await
+            </TextBlock>
+        </Button>
+        <Border Grid.Row="3" Grid.Column="1" BorderThickness="2" BorderBrush="Black">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="txtResultAsyncAwait"></TextBlock>
+        </Border>
+    </Grid>
+</Window>
